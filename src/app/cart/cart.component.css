@@ -1,0 +1,15 @@
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: darkcyan;
+}
+
+.right-side {
+    display: flex;
+}
+
+.bttns {
+    display: flex;
+    justify-content: space-between;
+}

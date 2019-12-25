@@ -1,0 +1,53 @@
+<div style="background-image: url('https://images.unsplash.com/photo-1457332253637-21d324d25df9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+background-repeat: no-repeat;background-size: cover;">
+<div>
+    <h2 style="text-align: center; background-color: darkcyan; padding: 15px;" >Car Maintenance Service</h2>
+</div>
+
+<mat-card class="register-card">
+  <h4 style="text-align: center;margin-bottom: 30 px;">Registration</h4>
+  <form #regform="ngForm">
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" name="email" id="email"
+      [(ngModel)]="customer.email" #email="ngModel" required aria-describedby="emailHelp" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        placeholder="Enter email">
+        <div [hidden]="email.valid || email.pristine" class="alert alert-danger">Email is not valid. It must be in the following order: characters@characters.domain</div>
+    </div>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" name="firstName" id="firstName"
+      [(ngModel)]="customer.firstName" #firstName="ngModel" required placeholder="Enter First Name" pattern="[A-Z][a-z]{2,20}">
+      <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">First Name must be minimum 3 characters and maximum 20 characters</div>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" name="lastName" id="lastName"
+        [(ngModel)]="customer.lastName" #lastName="ngModel" required placeholder="Enter Last Name" pattern="[a-z]{0,12}">
+        <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">Last Name must be minimum 1 characters and maximum 20 characters</div>
+      </div>
+    <div class="form-group">
+      <label for="contact">Contact</label>
+      <input type="text" class="form-control" name="contact" id="contact"
+      [(ngModel)]="customer.contact" #contact="ngModel" required placeholder="Enter Mobile Number" pattern="[789][0-9]{9}" maxlength="10">
+      <div [hidden]="contact.valid || contact.pristine" class="alert alert-danger">Mobile number must be 10 digits and it must start with 789</div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" id="password"
+      [(ngModel)]="customer.password" #password="ngModel" required placeholder="EnterPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+      <div [hidden]="password.valid || password.pristine" class="alert alert-danger">"Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"</div>
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" class="form-control" name="confirmPassword" id="confirmPassword"
+      [(ngModel)]="customer.confirmPassword" #confirmPassword="ngModel" required placeholder="Confirm Password" pattern="{{customer.password}}">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary" [disabled]="regform.invalid" (click)="register()">Register</button>
+        <button type="button" class="btn btn-secondary" style="margin-left: 10px;" (click)="cancel()">Cancel</button>
+    </div>
+    
+  </form>
+</mat-card>
+</div>

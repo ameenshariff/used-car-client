@@ -1,0 +1,95 @@
+<div>
+  <div class="nav-wrapper">
+    <div class="left-side">
+      <h2>Car Maintenance Service</h2>
+
+    </div>
+
+    <div class="right-side">
+      <div class="buy-btn" style="margin-right: 50px;">
+        <button class="btn btn-primary" (click)="cart()">Go To Cart ({{cartCount}})</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<button style="margin: 10px;" class="btn btn-outline-dark" (click)="back()">Back To Home</button>
+
+<div>
+    <u><h3 style="text-align: center; margin: 20px;">CAR GARAGE</h3></u>
+  </div>
+
+  <hr>
+
+<div class="selection">
+  <div class="right-side" style="margin: 5px;">
+    <select class="form-control inputstl" name="" id="city" (change)="citySelection()">
+        <option name="" id="">Select City</option>
+        <option name="" id="">Bangalore</option>
+        <option name="" id="">Mysore</option>
+        <option name="" id="">Hyderabad</option>
+        <option name="" id="">Chennai</option>
+    </select>
+      
+  </div>
+  <div class="left-side" style="margin: 5px;">
+    <select class="form-control inputstl" name="" id="brand" (change)="brandSelection()">
+        <option name="" id="">Select Brand</option>
+        <option name="" id="">TATA</option>
+        <option name="" id="">Maruthi</option>
+        <option name="" id="">Suzuki</option>
+        <option name="" id="">Hyundai</option>
+        <option name="" id="">NEXA</option>
+        <option name="" id="">Toyota</option>
+        <option name="" id="">Mahindra</option>
+        <option name="" id="">Ford</option>
+        <option name="" id="">Renault</option>
+        <option name="" id="">Honda</option>
+    </select>
+      
+  </div>
+  
+</div>
+
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Index</th>
+        <td></td>
+        <th>Vehicle Number</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Registration Date</th>
+        <th>Colour</th>
+        <th>Price</th>
+        <th>AC</th>
+        <th>Manual</th>
+        <th>City</th>
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehicle of vehicles; let i = index;">
+        <!-- <ng-container *ngIf="vehicle.isSold==false"> -->
+        <td>{{i+1}}</td>
+        <td><img height="100px" width="150px" src="assets\cars\{{vehicle.vehicleNumber}}.jpg" alt=""></td>
+        <td>{{vehicle.vehicleNumber}}</td>
+        <td>{{vehicle.brand}}</td>
+        <td>{{vehicle.model}}</td>
+        <td>{{vehicle.registrationDate}}</td>
+        <td>{{vehicle.colour}}</td>
+        <td>{{vehicle.price}}</td>
+        <td><img width="20px" height="20px" src="assets\{{vehicle.isAc}}.png" alt="{{vehicle.isAc}}"></td>
+        <td><img width="20px" height="20px" src="assets\{{vehicle.isManual}}.png" alt="{{vehicle.isManual}}"></td>
+        <td>{{vehicle.city}}</td>
+        <td><button mat-raised-button color="primary" (click)="buy(vehicle)">Buy</button>
+          &nbsp;
+          <button mat-raised-button color="accent" (click)="addToCart(vehicle)">Add To Cart</button></td>
+
+        <!-- </ng-container> -->
+      </tr>
+    </tbody>
+  </table>
+</div>

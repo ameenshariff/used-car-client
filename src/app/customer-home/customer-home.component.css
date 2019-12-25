@@ -1,0 +1,29 @@
+
+
+.vehicle-card {
+    height:100px;
+    width:800px;
+    margin-top: 50px;
+    margin-left: 200px;
+    /* display:flex; */
+    /* justify-content:center; */
+    /* align-items:center; */
+    /* background-color: gray; */
+  }
+
+  .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      padding: 30px;
+      background-color: darkcyan;
+  }
+
+  .right-side {
+      display: flex;
+  }
+
+  
+
+  table {
+    width: 100%;
+  }

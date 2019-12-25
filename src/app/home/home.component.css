@@ -1,0 +1,18 @@
+.login-card {
+    height: 40%;
+    width: 500px;
+    margin-top: 80px;
+    margin-left: 32%;
+    justify-content:center;
+    align-items:center;
+  }
+
+  .nav-wrapper{
+    display: flex;
+    background-color: darkcyan;
+  }
+
+  .container {
+    padding-top: 20px;
+    padding-left: 20%;
+  }

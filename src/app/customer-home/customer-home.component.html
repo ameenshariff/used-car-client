@@ -1,0 +1,90 @@
+<div>
+  <div class="nav-wrapper">
+    <div class="left-side">
+      <h2>Car Maintenance Service</h2>
+    </div>
+
+    
+
+    <div class="right-side">
+      <div class="buy-btn" style="margin-right: 50px;">
+        <button class="btn btn-outline-dark" (click)="buyCar()">Buy Car</button>
+      </div>
+        <div class="dropdown">
+            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+              {{fullName}}
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" (click)="cart()">Cart ({{cartCount}})</button>
+              <!-- <button class="dropdown-item">View Orders</button> -->
+              <!-- <button class="dropdown-item">Link 1</button> -->
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" style="color: red;" (click)="logOut()">LogOut</button>
+            </div>
+          </div>
+    </div>
+    
+  </div>
+</div>
+
+<div>
+    <u><h3 style="text-align: center; margin: 20px;">YOUR CARS</h3></u>
+  </div>
+
+<div class="wrapper">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <!-- <ng-container *ngIf="dataSource."> -->
+      <ng-container matColumnDef="index" >
+        <th mat-header-cell *matHeaderCellDef> Sl no </th>
+        <td mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef>Image</th>
+        <td mat-cell *matCellDef="let element;"><img height="100px" width="150px" src="assets\cars\{{element.vehicleNumber}}.jpg" alt=""></td>
+      </ng-container>
+
+      <ng-container matColumnDef="vehicleNumber">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Registration Number </th>
+          <td mat-cell *matCellDef="let element"> {{element.vehicleNumber}} </td>
+        </ng-container>
+
+      <ng-container matColumnDef="brand">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Brand </th>
+        <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="model">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Model </th>
+        <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+      </ng-container>
+
+      
+
+      <ng-container matColumnDef="regDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Registration Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.registrationDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="colour">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Colour </th>
+        <td mat-cell *matCellDef="let element"> {{element.colour}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element"><button (click)="viewChallan(element)" 
+            mat-stroked-button color="primary">View Challan</button>
+      </ng-container>
+    <!-- </ng-container> -->
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <!-- Angular 8 pagination -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+  </div>
+
+
+  

@@ -1,0 +1,30 @@
+<div 
+style="background-image: url('https://images.unsplash.com/photo-1505592225030-dad7a0531844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80');
+background-repeat: no-repeat;background-size: cover;">
+    <div>
+        <h2 style="padding:15px;text-align: center;background-color: darkcyan;">Car Maintenance Service</h2>
+    </div>
+    <mat-card class="login-card">
+        <h4 style="text-align: center;margin-bottom: 30 px;">Login</h4>
+        <form #loginform="ngForm">
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" name="email" id="email" pattern=""
+                [(ngModel)]="loginDetails.email" #email="ngModel" required aria-describedby="emailHelp"
+                    placeholder="Enter email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">Email is not valid. It must be in the following order: characters@characters.domain</div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" id="password"
+                [(ngModel)]="loginDetails.password" #password="ngModel" required placeholder="Password">
+                <div [hidden]="password.valid || password.pristine" class="alert alert-danger">Password must be entered</div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="loginform.invalid" (click)="login()">Login</button>
+        </form>
+
+        <p style="margin-top: 6%;">Not a member? <button (click)="register()" class="btn btn-warning">Register</button>
+        </p>
+
+    </mat-card>
+</div>
